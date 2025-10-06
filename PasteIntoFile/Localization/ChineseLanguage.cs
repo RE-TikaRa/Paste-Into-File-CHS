@@ -52,10 +52,11 @@ namespace PasteAsFile.Localization
             "\n要更改默认文件名格式,请使用此参数: /filename yyyy-MM-dd_HHmm\n" +
             "\n要更改语言,请使用此参数: /language [en|zh]\n" +
             "\n--------------------\n" +
-            "发送反馈至: eslamx7@gmail.com\n\n谢谢 :)";
+            "发送反馈至: eslamx7@gmail.com\n" +
+            "中文反馈请发送至: 163mail@re-tikara.fun\n\n谢谢 :)";
         public string HelpTitle => "粘贴到文件帮助";
         
-        public string Copyright => "© Eslam Hamouda 2014";
+        public string Copyright => "© Eslam Hamouda 2014 (CHS By TikaRa)";
         public string Website => "eslamx.com";
         
         // Settings form
