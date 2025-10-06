@@ -56,7 +56,7 @@ namespace PasteAsFile.Localization
             "中文反馈请发送至: 163mail@re-tikara.fun\n\n谢谢 :)";
         public string HelpTitle => "粘贴到文件帮助";
         
-        public string Copyright => "© Eslam Hamouda 2014 (CHS By TikaRa)";
+        public string Copyright => "© Eslam Hamouda 2014";
         public string Website => "eslamx.com";
         
         // Settings form

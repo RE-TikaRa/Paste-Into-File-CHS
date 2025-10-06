@@ -42,6 +42,7 @@
             this.btnBrowseForFolder = new System.Windows.Forms.Button();
             this.lblMe = new System.Windows.Forms.Label();
             this.lblWebsite = new System.Windows.Forms.Label();
+            this.lblTranslator = new System.Windows.Forms.Label();
             this.lblHelp = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgContent)).BeginInit();
@@ -196,6 +197,19 @@
             this.lblWebsite.Text = "eslamx.com";
             this.lblWebsite.Click += new System.EventHandler(this.lblWebsite_Click);
             // 
+            // lblTranslator
+            // 
+            this.lblTranslator.AutoSize = true;
+            this.lblTranslator.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTranslator.ForeColor = System.Drawing.Color.Gray;
+            this.lblTranslator.Location = new System.Drawing.Point(140, 165);
+            this.lblTranslator.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTranslator.Name = "lblTranslator";
+            this.lblTranslator.Size = new System.Drawing.Size(100, 17);
+            this.lblTranslator.TabIndex = 14;
+            this.lblTranslator.Text = "CHS By TiKaRa";
+            this.lblTranslator.Click += new System.EventHandler(this.lblTranslator_Click);
+            // 
             // lblHelp
             // 
             this.lblHelp.AutoSize = true;
@@ -228,6 +242,7 @@
             this.ClientSize = new System.Drawing.Size(445, 192);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblHelp);
+            this.Controls.Add(this.lblTranslator);
             this.Controls.Add(this.lblWebsite);
             this.Controls.Add(this.lblMe);
             this.Controls.Add(this.btnBrowseForFolder);
@@ -270,6 +285,7 @@
         private System.Windows.Forms.Button btnBrowseForFolder;
         private System.Windows.Forms.Label lblMe;
         private System.Windows.Forms.Label lblWebsite;
+        private System.Windows.Forms.Label lblTranslator;
         private System.Windows.Forms.Label lblHelp;
         private System.Windows.Forms.Button btnSettings;
     }

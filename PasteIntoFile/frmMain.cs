@@ -154,6 +154,11 @@ namespace PasteAsFile
             Process.Start("http://twitter.com/EslaMx7");
         }
 
+        private void lblTranslator_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://space.bilibili.com/374412219");
+        }
+
         private void lblHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show(LanguageManager.Current.HelpMessage, LanguageManager.Current.HelpTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
