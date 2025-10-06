@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PasteAsFile.Localization;
 
 namespace PasteAsFile
 {
@@ -37,6 +38,13 @@ namespace PasteAsFile
                     }
                     return;
                 }
+                else if (args[0] == "/language")
+                {
+                    if (args.Length > 1) {
+                        RegisterLanguage(args[1]);
+                    }
+                    return;
+                }
 				Application.Run(new frmMain(args[0]));
 			}
 			else
@@ -54,12 +62,27 @@ namespace PasteAsFile
                 key = key.CreateSubKey("filename");
                 key.SetValue("", filename);
 
-                MessageBox.Show("Filename has been registered with your system", "Paste Into File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(LanguageManager.Current.FilenameRegisteredMessage, LanguageManager.Current.FilenameRegisteredTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{
 				//throw;
-				MessageBox.Show(ex.Message + "\nPlease run the application as Administrator !", "Paste As File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message + LanguageManager.Current.ErrorAdminRequired, LanguageManager.Current.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		public static void RegisterLanguage(string languageCode)
+		{
+			try
+			{
+				LanguageManager.SetLanguage(languageCode);
+				LanguageManager.SaveLanguagePreference(languageCode);
+				
+				MessageBox.Show(LanguageManager.Current.RegisteredMessage, LanguageManager.Current.RegisteredTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message + LanguageManager.Current.ErrorAdminRequired, LanguageManager.Current.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -73,12 +96,12 @@ namespace PasteAsFile
 				key = OpenDirectoryKey().OpenSubKey("shell", true);
 				key.DeleteSubKeyTree("Paste Into File");
 
-				MessageBox.Show("Application has been Unregistered from your system", "Paste Into File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(LanguageManager.Current.UnregisteredMessage, LanguageManager.Current.UnregisteredTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message + "\nPlease run the application as Administrator !", "Paste Into File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message + LanguageManager.Current.ErrorAdminRequired, LanguageManager.Current.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				
 			}
 		}
@@ -96,13 +119,13 @@ namespace PasteAsFile
 				key.SetValue("Icon", "\"" + Application.ExecutablePath + "\",0");
 				key = key.CreateSubKey("command");
 				key.SetValue("" , "\"" + Application.ExecutablePath + "\" \"%1\"");
-				MessageBox.Show("Application has been registered with your system", "Paste Into File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(LanguageManager.Current.RegisteredMessage, LanguageManager.Current.RegisteredTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			}
 			catch (Exception ex)
 			{
 				//throw;
-				MessageBox.Show(ex.Message + "\nPlease run the application as Administrator !", "Paste As File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message + LanguageManager.Current.ErrorAdminRequired, LanguageManager.Current.ErrorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

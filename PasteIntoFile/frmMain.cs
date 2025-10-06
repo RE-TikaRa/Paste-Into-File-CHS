@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PasteAsFile.Localization;
 
 namespace PasteAsFile
 {
@@ -31,13 +32,16 @@ namespace PasteAsFile
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
+            // Apply localization
+            ApplyLocalization();
+            
             string filename = (string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\Directory\shell\Paste Into File\filename", "", null) ?? DEFAULT_FILENAME_FORMAT;
             txtFilename.Text = DateTime.Now.ToString(filename);
             txtCurrentLocation.Text = CurrentLocation ?? @"C:\";
 
             if (Registry.GetValue(@"HKEY_CURRENT_USER\Software\Classes\Directory\Background\shell\Paste Into File\command", "", null) == null)
             {
-                if (MessageBox.Show("Seems that you are running this application for the first time,\nDo you want to Register it with your system Context Menu ?", "Paste Into File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(LanguageManager.Current.FirstTimeMessage, LanguageManager.Current.FirstTimeTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Program.RegisterApp();
                 }
@@ -45,7 +49,7 @@ namespace PasteAsFile
 
             if (Clipboard.ContainsText())
             {
-                lblType.Text = "Text File";
+                lblType.Text = LanguageManager.Current.TextFile;
                 comExt.SelectedItem = "txt";
                 IsText = true;
                 txtContent.Text = Clipboard.GetText();
@@ -54,16 +58,35 @@ namespace PasteAsFile
 
             if (Clipboard.ContainsImage())
             {
-                lblType.Text = "Image";
+                lblType.Text = LanguageManager.Current.Image;
                 comExt.SelectedItem = "png";
                 imgContent.Image = Clipboard.GetImage();
                 return;
             }
 
-            lblType.Text = "Unknown File";
+            lblType.Text = LanguageManager.Current.UnknownFile;
             btnSave.Enabled = false;
 
 
+        }
+
+        private void ApplyLocalization()
+        {
+            var lang = LanguageManager.Current;
+            
+            // Form title
+            this.Text = lang.FormTitle;
+            
+            // Labels
+            lblFileName.Text = lang.Filename;
+            lblExt.Text = lang.Extension;
+            label1.Text = lang.CurrentLocation;
+            btnSave.Text = lang.SaveButton;
+            lblType.Text = lang.TypeLabel;
+            
+            // Copyright and website
+            lblMe.Text = lang.Copyright;
+            lblWebsite.Text = lang.Website;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -75,7 +98,7 @@ namespace PasteAsFile
             {
 
                 File.WriteAllText(location + filename, txtContent.Text, Encoding.UTF8);
-                this.Text += " : File Saved :)";
+                this.Text += LanguageManager.Current.FileSaved;
             }
             else
             {
@@ -101,7 +124,7 @@ namespace PasteAsFile
                         break;
                 }
 
-                this.Text += " : Image Saved :)";
+                this.Text += LanguageManager.Current.ImageSaved;
             }
 
             Task.Factory.StartNew(() =>
@@ -114,7 +137,7 @@ namespace PasteAsFile
         private void btnBrowseForFolder_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "Select a folder for saving this file ";
+            fbd.Description = LanguageManager.Current.FolderBrowserDescription;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 txtCurrentLocation.Text = fbd.SelectedPath;
@@ -133,15 +156,7 @@ namespace PasteAsFile
 
         private void lblHelp_Click(object sender, EventArgs e)
         {
-            string msg = "Paste Into File helps you paste any text or images in your system clipboard into a file directly instead of creating new file yourself";
-            msg += "\n--------------------\nTo Register the application to your system Context Menu run the program as Administrator with this argument : /reg";
-            msg += "\nto Unregister the application use this argument : /unreg\n";
-            msg += "\nTo change the format of the default filename, use this argument: /filename yyyy-MM-dd_HHmm\n";
-            msg += "\n--------------------\nSend Feedback to : eslamx7@gmail.com\n\nThanks :)";
-            MessageBox.Show(msg, "Paste As File Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
+            MessageBox.Show(LanguageManager.Current.HelpMessage, LanguageManager.Current.HelpTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtFilename_KeyPress(object sender, KeyPressEventArgs e)
@@ -149,6 +164,16 @@ namespace PasteAsFile
             if (e.KeyChar == (char)Keys.Enter)
             {
                 btnSave_Click(sender, null);
+            }
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            frmSettings settingsForm = new frmSettings();
+            if (settingsForm.ShowDialog() == DialogResult.OK)
+            {
+                // 重新加载语言设置
+                ApplyLocalization();
             }
         }
     }

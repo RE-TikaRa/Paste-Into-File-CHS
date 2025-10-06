@@ -43,6 +43,7 @@
             this.lblMe = new System.Windows.Forms.Label();
             this.lblWebsite = new System.Windows.Forms.Label();
             this.lblHelp = new System.Windows.Forms.Label();
+            this.btnSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -208,11 +209,24 @@
             this.lblHelp.Text = "?";
             this.lblHelp.Click += new System.EventHandler(this.lblHelp_Click);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Location = new System.Drawing.Point(330, 117);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(30, 37);
+            this.btnSettings.TabIndex = 6;
+            this.btnSettings.Text = "⚙";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(445, 192);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.lblHelp);
             this.Controls.Add(this.lblWebsite);
             this.Controls.Add(this.lblMe);
@@ -257,6 +271,7 @@
         private System.Windows.Forms.Label lblMe;
         private System.Windows.Forms.Label lblWebsite;
         private System.Windows.Forms.Label lblHelp;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
 
