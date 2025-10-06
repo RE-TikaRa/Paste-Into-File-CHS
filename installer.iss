@@ -2,7 +2,7 @@
 ; 中文汉化版 By TiKaRa
 
 #define MyAppName "粘贴到文件 (PasteIntoFile)"
-#define MyAppVersion "2.0"
+#define MyAppVersion "1.5.1"
 #define MyAppPublisher "Eslam Hamouda (CHS By TiKaRa)"
 #define MyAppURL "https://github.com/RE-TikaRa/Paste-Into-File-CHS"
 #define MyAppExeName "PasteIntoFile.exe"
@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 LicenseFile=LICENSE
 ; 输出配置
 OutputDir=installer_output
-OutputBaseFilename=PasteIntoFile-v2.0-CHS-Setup
+OutputBaseFilename=PasteIntoFile-v1.5.1-CHS-Setup
 ; 压缩
 Compression=lzma2/max
 SolidCompression=yes

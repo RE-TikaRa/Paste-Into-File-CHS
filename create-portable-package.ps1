@@ -2,7 +2,7 @@
 # 使用 PowerShell 创建自解压安装程序
 
 $AppName = "PasteIntoFile"
-$Version = "2.0-CHS"
+$Version = "1.5.1-CHS"
 $OutputDir = "installer_output"
 $SourceDir = "PasteIntoFile\bin\Release"
 
