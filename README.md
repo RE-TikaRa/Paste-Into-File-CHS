@@ -6,28 +6,47 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/EslaMx7/PasteIntoFile/">
+  <a href="https://github.com/RE-TikaRa/Paste-Into-File-CHS/">
     <img src="PasteIntoFile/icon.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">PasteIntoFile</h3>
+  <h3 align="center">PasteIntoFile - 中文增强版</h3>
   <p align="center">
     简单、快速、高效的剪贴板文件保存工具
     <br />
-    <a href="https://github.com/EslaMx7/PasteIntoFile"><strong>探索本项目的文档 »</strong></a>
+    <a href="https://github.com/RE-TikaRa/Paste-Into-File-CHS"><strong>探索本项目的文档 »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/EslaMx7/PasteIntoFile/releases">下载最新版本</a>
+    <a href="https://github.com/RE-TikaRa/Paste-Into-File-CHS/releases"><strong>📥 下载最新版本 »</strong></a>
     ·
-    <a href="https://github.com/EslaMx7/PasteIntoFile/issues">报告Bug</a>
+    <a href="https://github.com/RE-TikaRa/Paste-Into-File-CHS/issues">报告Bug</a>
     ·
-    <a href="https://github.com/EslaMx7/PasteIntoFile/issues">提出新特性</a>
+    <a href="https://github.com/RE-TikaRa/Paste-Into-File-CHS/issues">提出新特性</a>
   </p>
 
 
 ## 📖 目录
 
-[TOC]
+- [源项目](#源项目)
+- [项目简介](#项目简介)
+- [功能特性](#功能特性)
+  - [核心功能](#✨-核心功能)
+  - [多语言支持](#🌐-多语言支持)
+  - [高级功能](#🛠️-高级功能)
+- [快速开始](#快速开始)
+  - [系统要求](#系统要求)
+  - [安装步骤](#安装步骤)
+- [使用说明](#使用说明)
+  - [基础用法](#基础用法)
+  - [命令行参数](#命令行参数)
+  - [右键菜单集成](#右键菜单集成)
+  - [设置说明](#设置说明)
+- [文件目录说明](#文件目录说明)
+- [开发架构](#开发架构)
+- [使用到的技术](#使用到的技术)
+- [版本历史](#版本历史)
+- [作者信息](#作者信息)
+- [许可证](#许可证)
 
 ---
 
@@ -37,7 +56,9 @@
 
 ## 项目简介
 
-**PasteIntoFile** 是一个轻量级的 Windows 桌面工具,让你能够快速将剪贴板中的内容(文本、图片等)保存为文件,无需打开记事本或画图工具。本项目仅作汉化处理。
+**PasteIntoFile** 是一个轻量级的 Windows 桌面工具,让你能够快速将剪贴板中的内容(文本、图片等)保存为文件,无需打开记事本或画图工具。
+
+**本项目为中文增强版**,在原版基础上添加了完整的中文本地化、多语言切换、设置界面等功能。
 
 ### 为什么选择 PasteIntoFile?
 
@@ -87,15 +108,34 @@
 
 ### 安装步骤
 
-1. **下载最新版本**
-   
-   前往 [Releases](https://github.com/EslaMx7/PasteIntoFile/releases) 页面下载最新的 `PasteIntoFile.exe`
+#### 方式一:使用安装程序(推荐) ⭐
 
-2. **直接运行** (无需安装)
+1. **下载安装程序**
    
-   ```
-   双击 PasteIntoFile.exe 即可使用
-   ```
+   前往 [Releases](https://github.com/RE-TikaRa/Paste-Into-File-CHS/releases) 页面下载最新的 `PasteIntoFile-CHS-Setup.exe`
+
+2. **运行安装程序**
+   
+   - 双击运行安装程序
+   - 按照向导完成安装
+   - 可选择自动注册右键菜单
+   - 可选择创建桌面快捷方式
+
+3. **开始使用**
+   
+   - 从开始菜单或桌面快捷方式启动
+   - 或直接在文件夹空白处右键使用
+
+#### 方式二:便携版(免安装)
+
+1. **下载便携版**
+   
+   前往 [Releases](https://github.com/RE-TikaRa/Paste-Into-File-CHS/releases) 页面下载 `PasteIntoFile-CHS-Portable.zip`
+
+2. **解压并运行**
+   
+   - 解压到任意位置
+   - 双击 `PasteIntoFile.exe` 即可使用
 
 3. **可选:注册右键菜单** (需要管理员权限)
    
@@ -271,36 +311,103 @@ PasteIntoFile/
 - **Clipboard API** - 剪贴板操作
 - **SaveFileDialog** - 文件保存对话框
 
+---
 
+## 版本历史
 
-### 版本历史
+### v2.0 (2025-10-06) - 中文增强版 By TiKaRa
 
-- **v2.0** (2025-10-06) - 添加多语言支持和设置页面 （By TikaRa)
-- **v1.0** (初始版本) - 基础剪贴板保存功能
+**新增功能**:
+- ✅ 完整的中文本地化支持
+- ✅ 多语言系统架构 (中文/英文)
+- ✅ 设置窗口界面
+  - 语言选择器
+  - 文件名格式自定义
+  - 实时预览效果
+  - 右键菜单管理
+- ✅ 译者署名链接 (点击打开 B站主页)
+- ✅ 语言设置持久化保存
+- ✅ 安装程序制作
+
+**技术改进**:
+- 采用策略模式设计多语言系统
+- 改进的注册表配置管理
+- 优化的用户体验
+
+### v1.4 (原始版本) - 基础功能
+
+- 基础剪贴板保存功能
+- 右键菜单集成
+- 文件名格式设置
 
 ---
 
-## 源作者
+## 作者信息
 
-**EslaMx7**
+### 原作者
 
+**Eslam Hamouda (EslaMx7)**
 - GitHub: [@EslaMx7](https://github.com/EslaMx7)
-- Repository: [PasteIntoFile](https://github.com/EslaMx7/PasteIntoFile)
+- 原项目: [PasteIntoFile](https://github.com/EslaMx7/PasteIntoFile)
+- Twitter: [@EslaMx7](http://twitter.com/EslaMx7)
+- Website: [eslamx.com](http://eslamx.com)
 
-*您也可以在[贡献者名单](https://github.com/EslaMx7/PasteIntoFile/graphs/contributors)中参看所有参与该项目的开发者。*
+### 中文版维护者
+
+**TiKaRa**
+- GitHub: [@RE-TikaRa](https://github.com/RE-TikaRa)
+- 本项目: [Paste-Into-File-CHS](https://github.com/RE-TikaRa/Paste-Into-File-CHS)
+- 哔哩哔哩: [RE_TiKaRa](https://space.bilibili.com/374412219)
+- 邮箱: 163mail@re-tikara.fun
+
+### 贡献
+
+欢迎提交 Issue 和 Pull Request!
 
 ---
 
 ## 许可证
 
-该项目签署了 MIT 授权许可,详情请参阅 [LICENSE](https://github.com/EslaMx7/PasteIntoFile/blob/master/LICENSE)
+该项目采用 MIT 授权许可,详情请参阅 [LICENSE](LICENSE)
 
 ```
 MIT License
 
-Copyright (c) 2025 EslaMx7
+Copyright (c) 2014 Eslam Hamouda
+Copyright (c) 2025 TiKaRa (Chinese Enhancement)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
+
+---
+
+## ⭐ Star History
+
+如果这个项目对你有帮助,请给个 Star ⭐ 支持一下!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=RE-TikaRa/Paste-Into-File-CHS&type=Date)](https://star-history.com/#RE-TikaRa/Paste-Into-File-CHS&Date)
+
+---
+
+<p align="center">
+  <sub>原项目由 <a href="https://github.com/EslaMx7">Eslam Hamouda</a> 创建</sub>
+  <br>
+  <sub>中文增强版由 <a href="https://github.com/RE-TikaRa">TiKaRa</a> 维护</sub>
+</p>
 
